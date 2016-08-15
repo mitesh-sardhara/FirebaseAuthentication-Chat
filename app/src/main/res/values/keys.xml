@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<string name="firebase_url_Base">https://zrodev-645e1.firebaseio.com</string>-->
+    <!--<string name="firebase_url_Base">https://zrodev.firebaseio.com/</string>-->
+    <string name="firebase_url_Base">https://zero-57c2d.firebaseio.com/</string>
+    <!--<string name="firebase_url_Online">https://resplendent-inferno-3779.firebaseio.com/OnlineUsers/</string>-->
+    <!--<string name="firebase_url_Chat">https://resplendent-inferno-3779.firebaseio.com/Chat</string>-->
+
+    <!--Release-->
+    <!--<string name="firebase_url_base_release">https://resplendent-inferno-3779.firebaseio.com/</string>-->
+
+    <!--data folders -->
+    <string name="SubData_Users">Users/</string>
+    <string name="SubData_Online">OnlineUsers/</string>
+    <string name="SubData_OnlineInGroups">OnlineInGroups/</string>
+    <string name="SubData_Online_LastUpdate">LastUpdated/</string>
+    <string name="SubData_Chat">Chat/</string>
+    <string name="SubData_Folder_Info">OnlineUsersInfo/</string>
+    <string name="SubData_Hubs">Hubs/</string>
+    <string name="SubData_Members">members/</string>
+    <string name="SubData_UsersGroups">UsersGroups/</string>
+    <string name="SubData_Groups">Groups/</string>
+    <string name="SubData_GroupInvitations">GroupsInvitations/</string>
+    <string name="SubData_GroupsActive">GroupsActive/</string>
+
+    <!--data fields -->
+    <string name="fld_account_email">UserEmail</string>
+    <string name="fld_account_provider">AuthProvider</string>
+    <string name="fld_groupInvitation_Status">Status</string>
+    <string name="fld_Hubs_Name">name</string>
+    <string name="fld_groupInvitation_InvitedUserKey">InvitedUserKey</string>
+    <string name="fld_chat_Date">stamp</string>
+
+    <!--Constant Values    -->
+    <string name="AuthProvider_Ananymous">anonymous</string>
+    <string name="AuthProvider_Pass">password</string>
+
+    <!--Bundle key -->
+    <string name="latitude">Lt</string>
+    <string name="longitude">Lg</string>
+    <string name="user_key">userKey</string>
+    <string name="group_key">groupKey</string>
+    <string name="group_invitation_object">groupInvitationObject</string>
+    <string name="group_item_object">groupItemObject</string>
+    <string name="user_key_Dst">userKey_Dst</string>
+    <string name="user_name">userName</string>
+    <string name="user_name_Dst">userName_Dst</string>
+    <string name="chat_IsGroupChat">IsGroupChat</string>
+    <string name="chat_IsFriendChat">IsFriendsChat</string>
+    <!--<string name="hub_Id_Acc">hubId_Acc</string>-->
+
+
+    <!--Facebook authentication-->
+    <string name="facebook_app_id">153675201722850</string>
+
+</resources>

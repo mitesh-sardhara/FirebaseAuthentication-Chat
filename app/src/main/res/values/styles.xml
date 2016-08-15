@@ -1,0 +1,226 @@
+<resources>
+
+    <style name="ParentAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_MediumL2</item>
+        <item name="colorPrimaryDark">@color/color_MediumL3</item>
+        <item name="android:textColorPrimary">@color/color_LightL3</item>
+        <item name="colorAccent">@color/color_Taste</item>
+        <item name="android:colorBackground">@color/color_LightL1</item>
+        <item name="android:colorForeground">@color/color_MediumL3</item>
+        <item name="android:textColorSecondary">@color/color_MediumL1</item>
+        <item name="android:textColorHighlight">@color/color_MediumL2</item>
+        <item name="android:textColorHint">@color/color_LightL2</item>
+    </style>
+
+
+    <style name="AppTheme.Dialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--<style name="PreferenceThemeOverlay">-->
+    <!--&lt;!&ndash;<item name="android:background">@color/color_LightL1</item>&ndash;&gt;-->
+    <!--<item name="android:textSize">15sp</item>-->
+    <!--&lt;!&ndash;<item name="android:textColor">@color/color_LightL3</item>&ndash;&gt;-->
+    <!--&lt;!&ndash;<item name="android:textColorSecondary">@color/color_MediumL2</item>&ndash;&gt;-->
+    <!--</style>-->
+
+    <!--<style name="ParentAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <!--<item name="colorPrimary">@color/color_MediumL3</item>-->
+    <!--<item name="colorPrimaryDark">@color/color_LightL3</item>-->
+    <!--<item name="android:textColorPrimary">@color/color_LightL3</item>-->
+    <!--<item name="colorAccent">@color/color_Taste</item>-->
+    <!--<item name="android:colorBackground">@color/color_LightL1</item>-->
+    <!--<item name="android:colorForeground">@color/color_MediumL3</item>-->
+    <!--<item name="android:textColorSecondary">@color/color_MediumL1</item>-->
+    <!--<item name="android:textColorHighlight">@color/color_MediumL2</item>-->
+    <!--<item name="android:textColorHint">@color/color_LightL2</item>-->
+    <!--</style>-->
+
+    <style name="AppTheme" parent="ParentAppTheme">
+        <!--
+
+        -->
+    </style>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="InputHeaderTextView">
+        <item name="android:textColor">@color/color_MediumL1</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="InputHeaderIconTextView">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="DrawerContentIconTextView">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="DrawerTitleTextView">
+        <item name="android:textColor">@color/color_MediumL1</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="DrawerDescriptionTextView">
+        <item name="android:textColor">@color/color_MediumL1</item>
+        <!--<item name="android:textAppearance">?android:attr/textAppearanceLarge</item>-->
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="MarkerInfoDescriptionIconTextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="MarkerInfoTitleTextView">
+        <item name="android:textColor">@color/color_MediumL1</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="MarkerInfoTextView">
+        <item name="android:textColor">@color/color_MediumL1</item>
+        <!--<item name="android:textAppearance">?android:attr/textAppearanceLarge</item>-->
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--<style name="LinearRoot_Regular">-->
+    <!--<item name = "android:background">@drawable/color_blue_l2</item>-->
+    <!--<item name = "android:gravity">center_horizontal</item>-->
+    <!--<item name = "android:orientation">vertical</item>-->
+    <!--<item name = "android:padding">60dp</item>-->
+    <!--</style>-->
+
+    <style name="EditTextIconTextView">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="WizardNavigationIconTextView_lg">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="WizardNavigationIconTextView_sm">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/color_MediumL1</item>
+    </style>
+
+    <style name="EditTextRegular">
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="ToggleButtonDayWeek">
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <!--<item name="android:background">@drawable/toggle_button</item>-->
+        <item name="android:textAllCaps">false</item>
+        <!--android:background="@drawable/toggle_button"-->
+
+        <!--android:focusable="false"-->
+        <!--android:focusableInTouchMode="false"-->
+    </style>
+
+    <style name="ButtonRegularDark">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ButtonRegularLight">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--TO REFACTOR ALL : -->
+
+    <style name="ZeroTabLayout" parent="Widget.Design.TabLayout">
+        <!--<item name="tabIndicatorColor">#0000FF</item>-->
+        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/ZeroTabTextAppearance</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="ZeroTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+
+    <!-- ListView related themes -->
+    <style name="ListViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/main_color_grey_100</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:choiceMode">singleChoice</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+    <!-- ListView related themes end here -->
+
+
+    <!-- Ripple related styles -->
+    <style name="RippleStyle">
+        <item name="rippleOverlay">true</item>
+        <item name="rippleColor">@color/main_color_grey_300</item>
+        <item name="rippleAlpha">0.7</item>
+        <item name="rippleDimension">45dp</item>
+        <item name="rippleHover">true</item>
+        <item name="rippleDuration">200</item>
+        <item name="rippleFadeDuration">50</item>
+        <item name="rippleBackground">@android:color/transparent</item>
+        <item name="rippleDelayClick">true</item>
+        <item name="ripplePersistent">false</item>
+        <item name="rippleInAdapter">false</item>
+    </style>
+    <!-- Ripple related styles end here -->
+
+    <style name="DividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:background">@color/divider_color</item>
+        <!-- Supports API Level 17+ -->
+        <!-- <item name="android:layout_marginStart">8dp</item> -->
+        <!-- Supports API Level 17+ -->
+        <!-- <item name="android:layout_marginEnd">8dp</item> -->
+    </style>
+
+    <style name="ImageViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:contentDescription">@string/cd_main_image</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <!-- <item name="android:paddingBottom">8dp</item> -->
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:cropToPadding">true</item>
+    </style>
+
+</resources>

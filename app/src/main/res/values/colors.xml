@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#42CCC8</color>-->
+    <!--<color name="colorPrimaryDark">#71707E</color>-->
+    <!--<color name="colorAccent">#423c7a</color>-->
+
+    <color name="divider">#B6B6B6</color>
+    <color name="message_text_color_recipient">#727272</color>
+    <color name="message_text_color_sender">#FFFFFF</color>
+    <color name="bg_message">#86B2FF</color>
+
+
+    <!--Color Analytics -->
+    <color name="t1_colorGrayL1">#E7E7E6</color>
+    <color name="t1_colorGrayL2">#B8B9B6</color>
+    <color name="t1_colorGrayL3">#5D555D</color>
+    <color name="t1_colorPink">#E8B3B1</color>
+    <color name="t1_colorOrangeL1">#E6AA61</color>
+    <color name="t1_colorOrangeL2">#E3745D</color>
+    <color name="t1_colorBlueGray">#719F9F</color>
+
+    <!--color Medical -->
+    <color name="t2_colorGrayL1">#EBEBEC</color>
+    <color name="t2_colorGrayL2">#BCBEC2</color>
+    <color name="t2_colorGrayL3">#5A5D67</color>
+    <color name="t2_colorBlueL1">#7CCCCB</color>
+    <color name="t2_colorBlueL2">#71B0B1</color>
+    <color name="t2_colorBlueGreen">#45C3AB</color>
+    <color name="t2_colorBrown">#CB7671</color>
+
+    <!--color landing -->
+    <color name="t3_colorGrayL1">#DFE8EC</color>
+    <color name="t3_colorGrayL2">#A8B4BA</color>
+    <color name="t3_colorGrayL3">#3B4855</color>
+    <color name="t3_colorBlueL1">#478DBF</color>
+    <color name="t3_colorBlueL2">#457AA9</color>
+    <color name="t3_colorBlueL3">#36739D</color>
+    <color name="t3_colorGreen">#6F9B63</color>
+
+    <!--color Neighbourhood EFF5F9 , -->
+    <color name="t4_colorGrayL1">#EFF5F9</color>
+    <color name="t4_colorGrayL2">#D2D6DB</color>
+    <color name="t4_colorGrayL3">#66646E</color>
+    <color name="t4_colorBlueL1">#CCE9F7</color>
+    <color name="t4_colorBlueL2">#B2DAF0</color>
+    <color name="t4_colorBlueL3">#70B0E2</color>
+    <color name="t4_colorYellow">#FFC01D</color>
+
+    <!--color Alarm  -->
+    <color name="t5_colorGrayL1">#F4FDFE</color>
+    <color name="t5_colorGrayL2">#A3B7BB</color>
+    <color name="t5_colorGrayL3">#5C5D5D</color>
+    <color name="t5_colorBlueL1">#5CFEBD</color>
+    <color name="t5_colorBlueL2">#00BBD4</color>
+    <color name="t5_colorBlueL3">#0397A5</color>
+    <color name="t5_colorYellow">#E4E154</color>
+
+    <!--<item name="color_LightL1" type="color">@color/t1_colorGrayL1</item>-->
+    <!--<item name="color_LightL2" type="color">@color/t1_colorGrayL2</item>-->
+    <!--<item name="color_LightL3" type="color">@color/t1_colorGrayL3</item>-->
+    <!--<item name="color_MediumL1" type="color">@color/t1_colorPink</item>-->
+    <!--<item name="color_MediumL2" type="color">@color/t1_colorOrangeL1</item>-->
+    <!--<item name="color_MediumL3" type="color">@color/t1_colorOrangeL2</item>-->
+    <!--<item name="color_Taste" type="color">@color/t1_colorBlueGray</item>-->
+
+    <!--<item name="color_LightL1" type="color">@color/t2_colorGrayL1</item>-->
+    <!--<item name="color_LightL2" type="color">@color/t2_colorGrayL2</item>-->
+    <!--<item name="color_LightL3" type="color">@color/t2_colorGrayL3</item>-->
+    <!--<item name="color_MediumL1" type="color">@color/t2_colorBlueL1</item>-->
+    <!--<item name="color_MediumL2" type="color">@color/t2_colorBlueL2</item>-->
+    <!--<item name="color_MediumL3" type="color">@color/t2_colorBlueGreen</item>-->
+    <!--<item name="color_Taste" type="color">@color/t2_colorBrown</item>-->
+
+    <!--<item name="color_LightL1" type="color">@color/t3_colorGrayL1</item>-->
+    <!--<item name="color_LightL2" type="color">@color/t3_colorGrayL2</item>-->
+    <!--<item name="color_LightL3" type="color">@color/t3_colorGrayL3</item>-->
+    <!--<item name="color_MediumL1" type="color">@color/t3_colorBlueL1</item>-->
+    <!--<item name="color_MediumL2" type="color">@color/t3_colorBlueL2</item>-->
+    <!--<item name="color_MediumL3" type="color">@color/t3_colorBlueL3</item>-->
+    <!--<item name="color_Taste" type="color">@color/t3_colorGreen</item>-->
+
+
+    <!--<item name="color_LightL1" type="color">@color/t4_colorGrayL1</item>-->
+    <!--<item name="color_LightL2" type="color">@color/t4_colorGrayL2</item>-->
+    <!--<item name="color_LightL3" type="color">@color/t4_colorGrayL3</item>-->
+    <!--<item name="color_MediumL1" type="color">@color/t4_colorBlueL1</item>-->
+    <!--<item name="color_MediumL2" type="color">@color/t4_colorBlueL2</item>-->
+    <!--<item name="color_MediumL3" type="color">@color/t4_colorBlueL3</item>-->
+    <!--<item name="color_Taste" type="color">@color/t4_colorYellow</item>-->
+
+
+    <item name="color_LightL1" type="color">@color/t5_colorGrayL1</item>
+    <item name="color_LightL2" type="color">@color/t5_colorGrayL2</item>
+    <item name="color_LightL3" type="color">@color/t5_colorGrayL3</item>
+    <item name="color_MediumL1" type="color">@color/t5_colorBlueL1</item>
+    <item name="color_MediumL2" type="color">@color/t5_colorBlueL2</item>
+    <item name="color_MediumL3" type="color">@color/t5_colorBlueL3</item>
+    <item name="color_Taste" type="color">@color/t5_colorYellow</item>
+
+
+    <color name="colorPrimary">@color/color_LightL2</color>
+    <color name="colorPrimaryDark">@color/color_MediumL3</color>
+    <color name="colorAccent">@color/color_Taste</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+</resources>
+

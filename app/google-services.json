@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "877650891732",
+    "firebase_url": "https://zero-57c2d.firebaseio.com",
+    "project_id": "zero-57c2d",
+    "storage_bucket": "zero-57c2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877650891732:android:4bbafea4509f65bf",
+        "android_client_info": {
+          "package_name": "com.bytesnmaterials.zro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877650891732-ecouhequek9llm3eujvudj0l6hopcdln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRRyu0NhzVk2dnY6H20TaiLRocvFOMSZ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
