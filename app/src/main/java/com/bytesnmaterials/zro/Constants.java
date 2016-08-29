@@ -35,6 +35,8 @@ public class Constants {
     public static final String NODE_CHAT_HUBS = "chatHubs";
     public static final String NODE_CHAT_HUB_MEMBERS = "chatHubMembers";
     public static final String NODE_CHAT_HUB_MESSAGES = "chatHubMessages";
+    public static final String NODE_USER_CHAT = "userChats";
+    public static final String NODE_RECIPIENT_CHAT = "recipientChats";
 
     public static final String AUTH_GOOGLE = "Google";
     public static final String AUTH_FACEBOOK = "Facebook";

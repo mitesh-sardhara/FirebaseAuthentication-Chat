@@ -53,10 +53,5 @@ public class AppModule {
         return FirebaseDatabase.getInstance().getReference();
     }
 
-    /*@Provides
-    @Singleton
-    Query providesUserQuery(Firebase firbase) {
-        return new Firebase(BuildConfig.ENDPOINT);
-    }*/
 
 }

@@ -18,4 +18,6 @@ public interface IUpdatableFragement {
     public void addHub(HubInfo hub);
 
     public void addUser(UserAuth userAuth);
+
+    public void reloadFragment();
 }

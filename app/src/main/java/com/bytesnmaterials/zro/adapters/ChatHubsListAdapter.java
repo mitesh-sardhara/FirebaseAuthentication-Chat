@@ -25,6 +25,7 @@ public class ChatHubsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     List<HubInfo> listHubsForUser;
     LayoutInflater inflater;
     String loggedInUserUid;
+    String loggedInUserName;
 
     public ChatHubsListAdapter(Context context, List<HubInfo> listHubsForUser){
         this.context = context;
@@ -35,6 +36,7 @@ public class ChatHubsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         SharedPreferenceServices preferenceServices = new SharedPreferenceServices();
         loggedInUserUid = preferenceServices.getText(context, Constants.KEY_LOGGED_IN_USER_ID);
+        loggedInUserName = preferenceServices.getLoggedInUserFromPreference(this.context).UserDisplayName;
     }
 
     public void cleanUp() {
@@ -65,7 +67,17 @@ public class ChatHubsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolderHubs viewHolderUser=(ViewHolderHubs)holder;
         HubInfo hub=listHubsForUser.get(position);
-        viewHolderUser.getHubNameTextView().setText(hub.Name);
+        if(hub.Type == Constants.CHAT_TYPE_PERSONAL){
+            String [] array = hub.Name.split("-");
+            if(array[0].equals(loggedInUserName)){
+                viewHolderUser.getHubNameTextView().setText(array[1]);
+            }else{
+                viewHolderUser.getHubNameTextView().setText(array[0]);
+            }
+        }
+        //viewHolderUser.getHubNameTextView().setText(hub.Name);
+        viewHolderUser.getTxtHubMessage().setText(hub.LastMessage);
+        viewHolderUser.getTxtHubDate().setText(hub.LastUpdated);
     }
 
     @Override
@@ -82,9 +94,32 @@ public class ChatHubsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         TextView txtHubName;
 
+
+        TextView txtHubMessage;
+
+        TextView txtHubDate;
+
         public ViewHolderHubs(View itemView) {
             super(itemView);
             txtHubName = (TextView)itemView.findViewById(R.id.textViewHubNameRow);
+            txtHubDate = (TextView)itemView.findViewById(R.id.textViewHubDateRow);
+            txtHubMessage = (TextView)itemView.findViewById(R.id.textViewMessageRow);
+        }
+
+        public TextView getTxtHubDate() {
+            return txtHubDate;
+        }
+
+        public void setTxtHubDate(TextView txtHubDate) {
+            this.txtHubDate = txtHubDate;
+        }
+
+        public TextView getTxtHubMessage() {
+            return txtHubMessage;
+        }
+
+        public void setTxtHubMessage(TextView txtHubMessage) {
+            this.txtHubMessage = txtHubMessage;
         }
 
         public TextView getHubNameTextView() {

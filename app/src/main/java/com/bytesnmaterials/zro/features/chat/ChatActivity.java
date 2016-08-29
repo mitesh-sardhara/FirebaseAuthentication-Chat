@@ -2,6 +2,7 @@ package com.bytesnmaterials.zro.features.chat;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -93,6 +94,8 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
     private String selectedChatHubName = "";
     private String selectedOponentUId = "";
     private String selectedOponentName = "";
+    private String LastMessage = "";
+    private String LastUpdated = "";
     private int chatOpenFrom = -1;
 
     private boolean isCreatedNewChat = false;
@@ -101,6 +104,7 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
     private boolean isLoadingChat = true;
 
     private int FLAG_CREATE_OR_RESUME_CHAT = -1;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -153,27 +157,46 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
         recyclerView.scrollToPosition(adapterChatList.getItemCount()-1);*/
 
         //chatService.AddChatMessageToMessageListOfChatHub(selectedChatHubId, chatMessage);
-
-
     }
 
     @Override
     public void addChatMessage() {
 
         ChatMessage chatMessage = PrepareChatMessageFromInput();
-
+        LastMessage = chatMessage.Message;
+        LastUpdated = chatMessage.Stamp;
         if(adapterChatList.getItemCount() == 0){ // adding first message.
             Log.e("addchatMessage", "----adding first message---");
             hubInfo = PrepareHubInfoForNewChat();
+            hubInfo.LastMessage = LastMessage;
+            hubInfo.LastUpdated = LastUpdated;
+
             selectedChatHubId = hubInfo.Key;
             selectedChatHubName = hubInfo.Name;
-            getSupportActionBar().setTitle(hubInfo.Name);
-
-            /*List<ChatMessage>  emptyMessageChat=new ArrayList<ChatMessage>();
-            emptyMessageChat.add(chatMessage);
-            adapterChatList.refillFirsTimeAdapter(emptyMessageChat);*/
 
             chatService.AddChatHub(hubInfo);
+
+            ///
+            ChatHubMember member1 = new ChatHubMember();
+            member1.Key = loggedInUser.Uid;
+            member1.UserKey = loggedInUser.Uid;
+            member1.UserName = loggedInUser.UserDisplayName;
+
+            chatService.AddChatMemberToMemberListOfChatHub(selectedChatHubId, member1);
+
+            chatService.AddHubToChatHubListOfUser(member1.Key, hubInfo);
+
+            ChatHubMember member2 = new ChatHubMember();
+            member2.Key = selectedOponentUId;
+            member2.UserKey = selectedOponentUId;
+            member2.UserName = selectedOponentName;
+            chatService.AddChatMemberToMemberListOfChatHub(selectedChatHubId, member2);
+
+            chatService.AddHubToChatHubListOfUser(member2.Key, hubInfo);
+            chatService.AddChatForRecipient(loggedInUser.Uid, selectedOponentUId, hubInfo.Key);
+
+            getSupportActionBar().setTitle(selectedOponentName);
+            ///
         }
         refillAdapter(chatMessage);
         chatService.AddChatMessageToMessageListOfChatHub(selectedChatHubId, chatMessage);
@@ -186,7 +209,6 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
             case Constants.FROM_CHATS:
                 selectedChatHubId = getIntent().getStringExtra(Constants.KEY_SELECTED_CHAT_ID);
                 selectedChatHubName = getIntent().getStringExtra(Constants.KEY_SELECTED_CHAT_NAME);
-                getSupportActionBar().setTitle(selectedChatHubName);
                 Log.e("loadChat:", "-->"+selectedChatHubId+", "+selectedChatHubName );
                 loadChatFromChats();
                 break;
@@ -194,7 +216,7 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
                 selectedOponentName = getIntent().getStringExtra(Constants.KEY_SELECTED_RECIPIENT_NAME);
                 selectedOponentUId = getIntent().getStringExtra(Constants.KEY_SELECTED_RECIPIENT_UID);
                 getSupportActionBar().setTitle(selectedOponentName);
-
+                loadChatFromUsers();
                 break;
         }
     }
@@ -214,8 +236,36 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
     }
 
     @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        if(hubInfo!=null){
+            if(!LastUpdated.equals("") && !LastMessage.equals("")){
+                Log.e("=============", "=======onBackPressed========>");
+                Log.e("LastUpdated", "=>"+LastUpdated);
+                Log.e("LastMessage", "=>"+LastMessage);
+                Log.e("loggedInUid", "=>"+loggedInUser.Uid);
+                Log.e("selectedOponentUId", "=>"+selectedOponentUId);
+                Log.e("hubInfo.Key", "=>"+hubInfo.Key);
+                Log.e("=============", "=======onDestroy========>");
+                Intent intent = new Intent();
+                intent.putExtra("CHAT_ID",hubInfo.Key);
+                intent.putExtra("LAST_MESSAGE",LastMessage);
+                intent.putExtra("LAST_UPDATED",LastUpdated);
+                intent.putExtra("OPONANT",selectedOponentUId);
+                setResult(RESULT_OK, intent);
+                finish();
+            }else{
+                finish();
+            }
+        }else{
+            finish();
+        }
+    }
+
+    @Override
     public void loadChatFromUsers() {
-        //
+        Log.e("loadChatFromUsers", "selectedOponentUId=>"+selectedOponentUId);
+        chatService.GetChatIdForRecipient(loggedInUser.Uid, selectedOponentUId);
     }
 
     @Override
@@ -223,6 +273,7 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
         isLoadingChat = true;
         chatService.GetChatMessageListForChat(selectedChatHubId);
         chatService.GetChatHubFromChatId(selectedChatHubId);
+        chatService.GetChatMemberListForChat(selectedChatHubId);
     }
 
     @Override
@@ -289,6 +340,11 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
         return chatMessage;
     }
 
+    public void RefreshReciepientChat(String selectedChatId){
+        selectedChatHubId = selectedChatId;
+        loadChatFromChats();
+    }
+
     private HubInfo PrepareHubInfoForNewChat(){
         HubInfo chatHubInfo = new HubInfo();
         chatHubInfo.Key = ZeroUtil.random();
@@ -305,6 +361,21 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
         selectedChatHubName = hubInfo.Name;
         //chatService.AddChatMessageToMessageListOfChatHub(selectedChatHubId, PrepareChatMessageFromInput());
     }
+
+    public void refreshMembers(List<ChatHubMember> chatMemberList){
+        if(chatMemberList.size()>0){
+            for(int i=0;i<chatMemberList.size();i++){
+                ChatHubMember member = chatMemberList.get(i);
+                if(!member.UserKey.equals(loggedInUser.Uid)){
+                    selectedOponentUId = member.UserKey;
+                    selectedOponentName = member.UserName;
+                    getSupportActionBar().setTitle(selectedOponentName);
+                }
+            }
+        }
+
+    }
+
     private void refillAdapter(ChatMessage newMessage){
         if(!newMessage.Message.trim().equals("")){
             adapterChatList.refillAdapter(newMessage);
@@ -312,11 +383,20 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
         }
     }
 
+    public void refreshRecipientChat(String chatId){
+        selectedChatHubId = chatId;
+
+    }
+
     public void refreshMessgeListForChat(List<ChatMessage> chatMessageList){
         Log.e("refreshMessgeList:", "-->"+chatMessageList.size());
         if(adapterChatList.getItemCount() != 0){
             adapterChatList.cleanUp();
         }
+
+        LastMessage = chatMessageList.get(chatMessageList.size()-1).Message;
+        LastUpdated = chatMessageList.get(chatMessageList.size()-1).Stamp;
+
         adapterChatList=new ChatAdapter(context, chatMessageList);
         recyclerView.setAdapter(adapterChatList);
         recyclerView.scrollToPosition(adapterChatList.getItemCount()-1);
@@ -344,6 +424,8 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
                                         Log.e("addMessageListener:", "newMessage.author:"+newMessage.AuthorUserKey);
                                         refillAdapter(newMessage);
                                     }
+                                    LastMessage = newMessage.Message;
+                                    LastUpdated = newMessage.Stamp;
                                 }
                             }
                         }
@@ -376,10 +458,5 @@ public class ChatActivity extends BaseActivity implements IChatView, Validator.V
             // Remove listener
             mDatabase.removeEventListener(mMessageChatListener);
         }
-        // Clean chat message
-        adapterChatList.cleanUp();
     }
-
-
-
 }

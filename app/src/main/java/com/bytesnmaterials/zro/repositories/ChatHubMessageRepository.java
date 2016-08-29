@@ -46,7 +46,7 @@ public class ChatHubMessageRepository extends BaseRepository implements IChatHub
     public List<ChatMessage> GetMessageListForChat(String chatId) {
         chatMessageList = new ArrayList<>();
         DatabaseReference mDatabaseReference = GetFirebaseDatabaseRef();
-        mDatabaseReference.child(Constants.NODE_CHAT_HUB_MESSAGES).child(chatId)
+        mDatabaseReference.child(Constants.NODE_CHAT_HUB_MESSAGES).child(chatId).orderByKey()
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

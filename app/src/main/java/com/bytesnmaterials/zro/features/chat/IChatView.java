@@ -26,4 +26,6 @@ public interface IChatView {
     void deleteChatMessage();
 
     void showErrorDialog(String message);
+
+
 }

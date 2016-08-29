@@ -134,4 +134,9 @@ public class FragmentUsers extends BaseFragment implements IUpdatableFragement{
             adapterUsers.addUser(userAuth);
         }*/
     }
+
+    @Override
+    public void reloadFragment() {
+
+    }
 }

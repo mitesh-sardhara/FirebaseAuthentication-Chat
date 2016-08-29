@@ -11,7 +11,8 @@ public interface IUserChatHubRepository {
 
     List<HubInfo> GetChatHubListForUser(String Uid);
 
-    void AddChatHubToHubList(HubInfo hubInfo);
+    void AddChatHubToHubListForUser(String Uid, HubInfo hubInfo);
 
-    void AddChatHubListForUid(HubInfo hubInfo);
+    void UpdateLastUpdatedToHubListForUser(String Uid, String oponantId, String hubKey, String LastMessage, String LastStamp);
+
 }

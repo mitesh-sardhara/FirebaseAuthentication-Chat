@@ -8,4 +8,6 @@ public class HubInfo {
     public String Name;
     public int Type;
     public String stamp;
+    public String LastUpdated;
+    public String LastMessage;
 }

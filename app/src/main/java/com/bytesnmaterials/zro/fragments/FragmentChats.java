@@ -99,8 +99,8 @@ public class FragmentChats extends BaseFragment implements IUpdatableFragement{
     public void getAllHubsForUser(){
         listHubs.clear();
         chatService = new ChatService(getActivity());
-        chatService.GetAllChatHub();
-        //chatService.GetChatHubListForUser(((UsersChatActivity) getActivity()).getLoggedInUser().Uid);
+        //chatService.GetAllChatHub();
+        chatService.GetChatHubListForUser(((UsersChatActivity) getActivity()).getLoggedInUser().Uid);
     }
 
 
@@ -133,5 +133,10 @@ public class FragmentChats extends BaseFragment implements IUpdatableFragement{
     @Override
     public void addUser(UserAuth userAuth) {
 
+    }
+
+    @Override
+    public void reloadFragment() {
+        getAllHubsForUser();
     }
 }

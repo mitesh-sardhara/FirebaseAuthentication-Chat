@@ -42,6 +42,17 @@ public class ChatHubRepository extends BaseRepository implements IChatHubReposit
         ((ChatActivity)context).refreshHubInfo(hubInfo);
     }
 
+    public void UpdateChatHubLastUpdated(String chatId, String lastMessage, String lastTimeStmp){
+        DatabaseReference mDatabase = GetFirebaseDatabaseRef();
+        mDatabase.child(Constants.NODE_CHAT_HUBS)
+                .child(chatId).child("LastMessage")
+                .setValue(lastMessage);
+        mDatabase.child(Constants.NODE_CHAT_HUBS)
+                .child(chatId).child("LastUpdated")
+                .setValue(lastTimeStmp);
+
+    }
+
     @Override
     public List<HubInfo> GetAllChatHubs() {
         listChatHubs = new ArrayList<>();

@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+
     def supportLibVer = '23.4+'
     def daggerLibVer = '2.2'
 
@@ -48,35 +49,37 @@ dependencies {
     compile 'com.android.support:support-annotations:' + supportLibVer
     compile 'com.android.support:design:' + supportLibVer
 
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.google.firebase:firebase-auth:9.2.1'
-    compile 'com.google.firebase:firebase-database:9.2.1'
+
     provided 'javax.annotation:jsr250-api:1.0'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
-    compile 'com.jakewharton:butterknife:8.0.1'
-    compile 'com.mobsandgeeks:android-saripaar:+'
     compile 'com.google.dagger:dagger:' + daggerLibVer
 
     apt 'com.google.dagger:dagger-compiler:' + daggerLibVer
     provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
 
     //icons
-    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     // (v4.5)
-    compile 'com.joanzapata.iconify:android-iconify-material:2.2.2'
     // (v2.0.0)
-    compile 'com.joanzapata.iconify:android-iconify-material-community:2.2.2'
     // (v1.4.57)
     //QR:
-    compile 'com.google.zxing:core:3.2.0'
     //Text Drawable
-    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     //Progress Loader
-    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
     //Google and Facebook authentication
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.firebase:firebase-auth:9.2.1'
+    compile 'com.google.firebase:firebase-database:9.2.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    compile 'com.mobsandgeeks:android-saripaar:+'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+    compile 'com.joanzapata.iconify:android-iconify-material:2.2.2'
+    compile 'com.joanzapata.iconify:android-iconify-material-community:2.2.2'
+    compile 'com.google.zxing:core:3.2.0'
+
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
     compile 'com.google.android.gms:play-services:9.2.1'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
     compile 'com.google.android.gms:play-services-ads:9.2.1'
@@ -85,3 +88,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-plus:9.2.1'
 }
 apply plugin: 'com.google.gms.google-services'
+
+

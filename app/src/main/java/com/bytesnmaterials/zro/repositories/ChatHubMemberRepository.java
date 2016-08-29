@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.bytesnmaterials.zro.Constants;
+import com.bytesnmaterials.zro.features.chat.ChatActivity;
 import com.bytesnmaterials.zro.models.ChatHubMember;
 import com.bytesnmaterials.zro.models.ChatMessage;
 import com.google.firebase.database.DataSnapshot;
@@ -23,8 +24,11 @@ public class ChatHubMemberRepository extends BaseRepository implements IChatHubM
 
     private List<ChatHubMember> chatHubMemberList = null;
 
+    private Context context = null;
+
     public ChatHubMemberRepository(Context context) {
         super(context);
+        this.context = context;
     }
 
     @Override
@@ -41,7 +45,7 @@ public class ChatHubMemberRepository extends BaseRepository implements IChatHubM
     public List<ChatHubMember> GetMemberListForChat(String chatId) {
         chatHubMemberList = new ArrayList<>();
         DatabaseReference mDatabaseReference = GetFirebaseDatabaseRef();
-        mDatabaseReference.child(Constants.NODE_CHAT_HUB_MESSAGES).child(chatId)
+        mDatabaseReference.child(Constants.NODE_CHAT_HUB_MEMBERS).child(chatId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -51,13 +55,17 @@ public class ChatHubMemberRepository extends BaseRepository implements IChatHubM
                             for (DataSnapshot chatMemberSnapshot: dataSnapshot.getChildren()) {
                                 ChatHubMember chatHubMember = chatMemberSnapshot.getValue(ChatHubMember.class);
                                 chatHubMemberList.add(chatHubMember);
+                                Log.e("GetMemberListForChat", "UserName-->"+chatHubMember.UserName);
                             }
                         }
+                        Log.e("GetMemberListForChat", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                        Log.e("GetMemberListForChat", "size-->"+chatHubMemberList.size());
+                        ((ChatActivity)context).refreshMembers(chatHubMemberList);
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Log.w("GetMessageListForChat", "GetMessageListForChat:onCancelled", databaseError.toException());
+                        Log.w("GetMemberListForChat", "GetMemberListForChat:onCancelled", databaseError.toException());
                     }
                 });
         return chatHubMemberList;

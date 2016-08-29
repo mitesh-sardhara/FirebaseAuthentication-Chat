@@ -18,6 +18,7 @@ import com.bytesnmaterials.zro.fragments.FragmentChats;
 import com.bytesnmaterials.zro.fragments.FragmentUsers;
 import com.bytesnmaterials.zro.models.HubInfo;
 import com.bytesnmaterials.zro.models.UserAuth;
+import com.bytesnmaterials.zro.services.Chat.ChatService;
 import com.bytesnmaterials.zro.services.SharedPreferenceServices;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -105,7 +106,19 @@ public class UsersChatActivity extends BaseActivity implements IUsersChatView {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CHAT){
+            if(resultCode == RESULT_OK){
+                Log.e("onActivityResult", "reloadFragment-------");
+                String chatId = data.getStringExtra("CHAT_ID");
+                String LastMessage = data.getStringExtra("LAST_MESSAGE");
+                String LastUpdated = data.getStringExtra("LAST_UPDATED");
+                String oponantId = data.getStringExtra("OPONANT");
+                ChatService chatService = new ChatService(this);
+                chatService.UpdateLastUpdatedAtHub(chatId, LastMessage, LastUpdated);
+                chatService.UpdateChatHubAtUserChat(loggedInuser.Uid, oponantId, chatId, LastMessage, LastUpdated);
+            }
+        }
     }
 
     @Override
@@ -143,6 +156,7 @@ public class UsersChatActivity extends BaseActivity implements IUsersChatView {
         if (mUsersChildListener == null) {
             addUsersClildListener();
         }
+
     }
 
     @Override
@@ -158,7 +172,7 @@ public class UsersChatActivity extends BaseActivity implements IUsersChatView {
     }
 
     public void addChatHubsClildListener() {
-        mChatHubsClildListener = mDatabase.child(Constants.NODE_CHAT_HUBS)
+        mChatHubsClildListener = mDatabase.child(Constants.NODE_CHAT_HUBS).child(loggedInuser.Uid)
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -171,7 +185,7 @@ public class UsersChatActivity extends BaseActivity implements IUsersChatView {
 
                     @Override
                     public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                        Log.e("onChildChanged", "-------------------");
                     }
 
                     @Override
